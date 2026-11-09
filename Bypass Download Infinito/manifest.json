@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "YTD INFINITO",
+  "version": "1.0",
+  "description": "patriota bonitinho",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "icons": {
+    "16": "images.png",
+    "48": "images.png",
+    "128": "images.png"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "ncage.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

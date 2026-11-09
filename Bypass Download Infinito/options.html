@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YTD INFINITO - Opções</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: #f5f5f7;
+      color: #1d1d1f;
+      padding: 32px;
+      max-width: 720px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .subtitle {
+      color: #86868b;
+      font-size: 14px;
+      margin-bottom: 28px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #d2d2d7;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    h2 {
+      font-size: 16px;
+      margin-bottom: 16px;
+      font-weight: 600;
+      color: #1d1d1f;
+    }
+
+    .field {
+      margin-bottom: 16px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: #1d1d1f;
+    }
+
+    .field input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-right: 8px;
+      cursor: pointer;
+      accent-color: #0a84ff;
+    }
+
+    .field .checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .field input[type="text"],
+    .field input[type="number"],
+    .field textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #d2d2d7;
+      border-radius: 8px;
+      font-size: 14px;
+      background: #fff;
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 120px;
+      font-family: ui-monospace, SFMono-Regular, monospace;
+    }
+
+    .field small {
+      display: block;
+      margin-top: 4px;
+      font-size: 12px;
+      color: #86868b;
+    }
+
+    .field span.value {
+      display: inline-block;
+      margin-left: 8px;
+      font-weight: 600;
+      color: #0a84ff;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    button.primary {
+      background: #0a84ff;
+      color: #fff;
+    }
+
+    button.primary:hover {
+      background: #006edf;
+    }
+
+    button.secondary {
+      background: #f2f2f7;
+      color: #1d1d1f;
+    }
+
+    button.secondary:hover {
+      background: #e5e5ea;
+    }
+
+    .logo {
+      margin-bottom: 16px;
+    }
+
+    .logo img {
+      width: 64px;
+      height: 64px;
+      border-radius: 12px;
+    }
+
+    .status {
+      font-size: 12px;
+      margin-top: 6px;
+    }
+
+    .status.ok {
+      color: #34c759;
+    }
+
+    .status.err {
+      color: #ff3b30;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="logo">
+    <img src="images.png" alt="Logo YTD INFINITO">
+  </div>
+
+  <h1>YTD INFINITO</h1>
+  <p class="subtitle">Edição Patriota • Deus, Pátria e Família • Navegação Verde e Amarela 🇧🇷</p>
+
+  <div class="card">
+    <h2>Enable Image Replacement</h2>
+    <div class="field">
+      <label class="checkbox-row">
+        <input type="checkbox" id="enabled">
+        <span>Ativar substituição de imagens</span>
+      </label>
+    </div>
+
+    <h2>Image Replacement Rate</h2>
+    <div class="field">
+      <label>Taxa de substituição <span id="rateValue" class="value">1%</span></label>
+      <input type="number" id="rate" min="0" max="100" step="1" value="1">
+      <small>Percentual de imagens que serão substituídas em cada página (inicia sutil em 1%).</small>
+    </div>
+    <div class="field">
+      <label class="checkbox-row">
+        <input type="checkbox" id="autoIncrease" checked>
+        <span>Aumentar taxa de substituição em 1% a cada dia</span>
+      </label>
+    </div>
+
+    <h2>Select a library of images to use</h2>
+    <div class="field">
+      <label>Custom Library</label>
+      <textarea id="library" placeholder="Cole aqui links de imagens separados por vírgula..."></textarea>
+      <small>Lista de URLs públicas de imagens separadas por vírgula. Links simples têm maior chance de
+        funcionar.</small>
+    </div>
+    <div id="urlStatus" class="status"></div>
+
+    <div class="actions">
+      <button class="primary" id="saveBtn">Salvar</button>
+      <button class="secondary" id="resetBtn">Redefinir padrões</button>
+    </div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+
+</html>
